@@ -1,0 +1,56 @@
+<idea-plugin>
+    <id>com.fhtiger.plugins.humptransfern</id>
+    <name>HumpTransferNew</name>
+    <version>1.0.0-2019.2</version>
+    <vendor email="guishizuiezhishi@163.com" url="https://github.com/ghostFlyTiger/plugin.humpTransferNew">GhostFlyTiger</vendor>
+    <description><![CDATA[
+      Transfer the code to a hump form or underline.<br>
+      <em>Also make reverse</em>
+    ]]></description>
+    <change-notes><![CDATA[
+      The new version to suite the IDEA 2019.2.1+ from the plugin 'HumpTransfer';
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <!-- 自定义分组 -->
+        <group text="HumpTransferNew" id="com.fhtiger.plugins.humptransfern" popup="true" description="Transfer selection to `hump` or `underline`">
+            <!-- 将自定义分组归类到已经有分组 -->
+            <!--顶部Edit分组-->
+            <add-to-group group-id="EditMenu" anchor="last"/>
+            <!--顶部Code分组-->
+            <add-to-group group-id="CodeMenu" anchor="last"/>
+            <!--重定义Refactor按钮分组-->
+            <add-to-group group-id="RefactoringMenu" anchor="last"/>
+            <!-- 操作按钮 -->
+            <action id="com.fhtiger.plugins.humptransfern.Code2HumpAction" class="com.fhtiger.plugins.humptransfern.Code2HumpAction" text="Transfer2Hump" description="Transfer selection to `hump` " >
+                <!-- 简写 -->
+                <abbreviation>HP</abbreviation>
+            </action>
+            <action id="com.fhtiger.plugins.humptransfern.Code2HumpWithUpperAction" class="com.fhtiger.plugins.humptransfern.Code2HumpWithUpperAction" text="Transfer2Hump-UpperChar0" description="Transfer selection to `hump` with first char uppercase." >
+                <abbreviation>HPU0</abbreviation>
+            </action>
+
+            <action id="com.fhtiger.plugins.humptransfern.Code2UnderLineAction" class="com.fhtiger.plugins.humptransfern.Code2UnderLineAction" text="Transfer2UnderLine" description="Transfer selection to `underline`" >
+                <abbreviation>HUL</abbreviation>
+            </action>
+            <action id="com.fhtiger.plugins.humptransfern.Code2UnderLineWithUppercaseAction" class="com.fhtiger.plugins.humptransfern.Code2UnderLineWithUppercaseAction" text="Transfer2UnderLine-UpperCase" description="Transfer selection to `underline`" >
+                <abbreviation>HULU0</abbreviation>
+            </action>
+
+        </group>
+    </actions>
+
+</idea-plugin>
