@@ -1,4 +1,4 @@
-# 驼峰格式的辅助转换工具  [HumpTransferNew - Plugin Jetbrains](https://plugins.jetbrains.com/plugin/12945-humptransfernew/)
+# 驼峰-下划线辅助转换工具  [HumpTransferNew - Plugin Jetbrains](https://plugins.jetbrains.com/plugin/12945-humptransfernew/)
 # 实现下划线格式文本和驼峰格式文本的互相转换. 
 ## 此插件会在Edit,Code以及Refactor三个按钮分组中添加对应按钮组.
 ## HumpTransferNew 有下面4个针对性的动作
