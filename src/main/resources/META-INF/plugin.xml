@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.fhtiger.plugins.humptransfern</id>
     <name>HumpTransferNew</name>
-    <version>1.0.0-2019.2</version>
+    <version>1.0.1-2019.2</version>
     <vendor email="guishizuiezhishi@163.com" url="https://github.com/Chivenh/plugin.humpTransferNew">Chivenh</vendor>
     <description><![CDATA[
       Transfer the code to a hump form or underline.<br>
@@ -10,6 +10,10 @@
     <change-notes><![CDATA[
       The new version to suite the IDEA 2019.2.1+ from the plugin 'HumpTransfer';
       See <a href="https://plugins.jetbrains.com/plugin/12882-humptransfer/" target="_blank">HumpTransfer - Plugin Jetbrains</a>
+      ----
+      New to 1.0.1-2019.2 has optimization the global definition,and then add the 'CapitalFirstChar' action;
+      ----
+      There is some new idea in the future! Wait moment...!
     ]]>
     </change-notes>
 
