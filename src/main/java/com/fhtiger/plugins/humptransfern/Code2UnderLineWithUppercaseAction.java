@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
  * @author LFH
  * @since 2019年08月15日 17:27
  */
-public final class Code2UnderLineWithUppercaseAction extends Code2HumpOrUnderLine {
+public final class Code2UnderLineWithUppercaseAction extends CodeTransferHandler {
 
 	@Override
 	public void actionPerformed(@NotNull AnActionEvent anActionEvent) {

@@ -1,5 +1,8 @@
 package com.fhtiger.plugins.humptransfern;
 
+import com.fhtiger.plugins.pojo.CapitalPojo;
+import com.fhtiger.plugins.pojo.HandlerPojo;
+import com.fhtiger.plugins.pojo.HumpUnderlinePojo;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -25,7 +28,7 @@ import java.awt.*;
  * @author LFH
  * @since 2019年08月15日 16:42
  */
-public abstract class Code2HumpOrUnderLine extends AnAction {
+public abstract class CodeTransferHandler extends AnAction {
 
 	private final static JBColor JBColorDefine = new JBColor(new Color(186, 238, 186), new Color(73, 117, 73));
 
@@ -54,11 +57,8 @@ public abstract class Code2HumpOrUnderLine extends AnAction {
 	/**
 	 * 修改为支持批量转换的操作 2019/8/17 14:11
 	 * @param anActionEvent 事件
-	 * @param toHump 是否转驼峰,非则转下划线
-	 * @param smallCaml    转驼峰时smallCaml参数
-	 * @param uppercase   转下划线时upperCase参数
 	 */
-	private void transfer(@NotNull AnActionEvent anActionEvent,boolean toHump,boolean smallCaml,boolean uppercase){
+	private void transfer(@NotNull AnActionEvent anActionEvent, HandlerPojo handlerPojo){
 		final Editor mEditor = anActionEvent.getData(PlatformDataKeys.EDITOR);
 		if (null == mEditor) {
 			return;
@@ -69,30 +69,7 @@ public abstract class Code2HumpOrUnderLine extends AnAction {
 			return;
 		}
 
-		String splitRegex = "(\\s+|,|;|/)";
-
-		String[] splitStr = selectedText.split(splitRegex);
-
-		String result;
-		StringBuilder resultBuilder = new StringBuilder();
-		int strIndex;
-		if(splitStr.length>0){
-			result = selectedText;
-			for (String str : splitStr) {
-				int strLength = str.length();
-				if(strLength<1){
-					continue;
-				}
-				 strIndex = result.indexOf(str);
-				//将result中匹配字符串前面部分和当前部分处理后的结果存入结果字符串构造中
-				resultBuilder.append(result, 0, strIndex).append(toHump?  HumpTransferUtil.transfer2hump(str,smallCaml): HumpTransferUtil.transfer2underline(str,uppercase));
-				//将result中已经存入resultBuilder中的部分移除.
-				result = result.substring(strIndex+str.length());
-			}
-			result = resultBuilder.toString();
-		}else{
-			result = toHump?  HumpTransferUtil.transfer2hump(selectedText,smallCaml): HumpTransferUtil.transfer2underline(selectedText,uppercase);
-		}
+		String result=handlerPojo.transfer(selectedText);
 
 		// Work off of the primary caret to get the selection info
 		Caret primaryCaret = mEditor.getCaretModel().getPrimaryCaret();
@@ -124,7 +101,7 @@ public abstract class Code2HumpOrUnderLine extends AnAction {
 	}
 
 	protected void transfer2hump(@NotNull AnActionEvent anActionEvent,boolean smallCaml){
-		transfer(anActionEvent,true,smallCaml,false);
+		transfer(anActionEvent,new HumpUnderlinePojo(true,smallCaml,false));
 	}
 
 	protected void transfer2hump(@NotNull AnActionEvent anActionEvent){
@@ -132,11 +109,15 @@ public abstract class Code2HumpOrUnderLine extends AnAction {
 	}
 
 	protected void transfer2underline(@NotNull AnActionEvent anActionEvent,boolean uppercase){
-		transfer(anActionEvent,false,true,uppercase);
+		transfer(anActionEvent, new HumpUnderlinePojo(false,true,uppercase));
 	}
 
 	protected void transfer2underline(@NotNull AnActionEvent anActionEvent){
 		transfer2underline(anActionEvent,false);
+	}
+
+	protected void capitalFirstChar(@NotNull AnActionEvent anActionEven){
+		transfer(anActionEven,new CapitalPojo());
 	}
 
 	/**

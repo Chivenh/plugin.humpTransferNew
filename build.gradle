@@ -10,9 +10,9 @@ version '1.0.0-2019.2'
 sourceCompatibility = 1.8
 
 repositories {
-    maven {
-        url 'http://cargohsk.ticp.io:8081/nexus/content/groups/public/'
-    }
+//    maven {
+//        url 'http://cargohsk.ticp.io:8081/nexus/content/groups/public/'
+//    }
     mavenCentral()
 }
 

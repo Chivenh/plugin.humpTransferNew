@@ -2,7 +2,7 @@
     <id>com.fhtiger.plugins.humptransfern</id>
     <name>HumpTransferNew</name>
     <version>1.0.0-2019.2</version>
-    <vendor email="guishizuiezhishi@163.com" url="https://github.com/ghostFlyTiger/plugin.humpTransferNew">GhostFlyTiger</vendor>
+    <vendor email="guishizuiezhishi@163.com" url="https://github.com/Chivenh/plugin.humpTransferNew">Chivenh</vendor>
     <description><![CDATA[
       Transfer the code to a hump form or underline.<br>
       <em>Also make reverse</em>
@@ -49,6 +49,9 @@
             </action>
             <action id="com.fhtiger.plugins.humptransfern.Code2UnderLineWithUppercaseAction" class="com.fhtiger.plugins.humptransfern.Code2UnderLineWithUppercaseAction" text="Transfer2UnderLine-UpperCase" description="Transfer selection to `underline`" >
                 <abbreviation>HULU0</abbreviation>
+            </action>
+            <action id="com.fhtiger.plugins.humptransfern.CodeCapitalFirstCharAction" class="com.fhtiger.plugins.humptransfern.CodeCapitalFirstCharAction" text="CapitalFirstChar" description="Transfer selection's first char to capitalized ">
+                <abbreviation>HCF</abbreviation>
             </action>
 
         </group>

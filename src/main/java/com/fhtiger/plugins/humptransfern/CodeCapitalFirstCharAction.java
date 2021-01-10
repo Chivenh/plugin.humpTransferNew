@@ -4,15 +4,16 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Code2HumpAction
+ * CodeCapitalFirstCharAction
  *
  * @author LFH
- * @since 2019年08月15日 17:27
+ * @since 2021年01月10日 21:54
  */
-public final class Code2HumpAction extends CodeTransferHandler {
+@SuppressWarnings({ "unused" })
+public class CodeCapitalFirstCharAction  extends CodeTransferHandler{
 
 	@Override
 	public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
-		transfer2hump(anActionEvent);
+		capitalFirstChar(anActionEvent);
 	}
 }
